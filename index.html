@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Keyword Research Tool | SEO Keywords Finder & Analysis - KeywordPro</title>
+    <meta name="description" content="Discover the best free keyword research tool. Find profitable keywords, analyze competition, and boost your SEO with our keyword difficulty checker. Start free today!">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .keyword-input-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .keyword-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            font-size: 1rem;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* Results Section */
+        .results {
+            padding: 3rem 2rem;
+            background: var(--bg-light);
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .keyword-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .difficulty-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .difficulty-low {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .difficulty-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .difficulty-high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .result-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 4rem 2rem;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .rating {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Blog Preview */
+        .blog-preview {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .keyword-input-container {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">🔍 KeywordPro</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="https://sites.google.com/view/paraspak/home" target="_blank" class="btn btn-outline">📁 Portfolio</a>
+                <a href="#" class="btn btn-outline">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up Free</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Profitable Keywords in Seconds</h1>
+            <p>The Free SEO Keywords Tool Trusted by 50,000+ Marketers</p>
+            
+            <div class="keyword-input-container">
+                <input type="text" class="keyword-input" id="keywordInput" placeholder="Enter your keyword (e.g., digital marketing)...">
+                <button class="btn btn-primary" id="searchBtn">
+                    <span id="btnText">Get Keywords →</span>
+                    <span id="btnLoading" style="display: none;" class="loading"></span>
+                </button>
+            </div>
+
+            <div class="hero-features">
+                <div class="hero-feature">✓ Free Forever</div>
+                <div class="hero-feature">✓ No Credit Card</div>
+                <div class="hero-feature">✓ Instant Results</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="resultsSection">
+        <div class="container">
+            <h2 class="section-title">Keyword Results for "<span id="searchedKeyword"></span>"</h2>
+            <div class="results-grid" id="resultsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features for Better SEO</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Search Volume</h3>
+                    <p>Get accurate, up-to-date search volume data from multiple sources to understand keyword demand and potential traffic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Difficulty Score</h3>
+                    <p>Know your chances of ranking on page 1 with our proprietary difficulty algorithm that analyzes competition strength.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>SERP Analysis</h3>
+                    <p>See who's ranking and why with detailed SERP breakdowns including domain authority, backlinks, and content quality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Keyword Suggestions</h3>
+                    <p>Discover hundreds of related keywords and long-tail variations to expand your content strategy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Trend Analysis</h3>
+                    <p>Track keyword popularity over time and identify seasonal trends to optimize your content calendar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Competitor Keywords</h3>
+                    <p>Uncover the exact keywords your competitors are ranking for and find gaps in their strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Enter Keyword</h3>
+                    <p>Type any keyword or topic you want to research</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Data</h3>
+                    <p>Instantly receive search volume, difficulty, and trends</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Analyze Results</h3>
+                    <p>Review comprehensive data and keyword suggestions</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Rank Higher</h3>
+                    <p>Create optimized content and dominate search results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="section-title">Loved by Marketers Worldwide</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Increased my organic traffic by 300% in just 3 months using KeywordPro. The difficulty scores are incredibly accurate!"</p>
+                    <p class="testimonial-author">Sarah Mitchell, Content Marketer</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Best free keyword tool I've ever used. The SERP analysis feature alone is worth thousands of dollars."</p>
+                    <p class="testimonial-author">John Davis, SEO Specialist</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Finally found a keyword tool that's actually free and provides professional-grade data. Game changer for my agency!"</p>
+                    <p class="testimonial-author">Emily Chen, Agency Owner</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1.2rem; font-weight: 600;">4.8/5 from 2,341 reviews</p>
+        </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="blog-preview" id="blog">
+        <div class="container">
+            <h2 class="section-title">Latest SEO Insights</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">📚</div>
+                    <div class="blog-content">
+                        <h3>How to Do Keyword Research for SEO: Complete 2026 Guide</h3>
+                        <p>Learn the proven 7-step process to find profitable keywords that drive organic traffic and conversions. Master search intent analysis and competitor research.</p>
+                        <a href="blogs.html#guide1" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">🔧</div>
+                    <div class="blog-content">
+                        <h3>10 Best Free Keyword Research Tools in 2026</h3>
+                        <p>Comprehensive comparison of the top free keyword tools with features, pros, cons, and real examples. Find the perfect tool for your needs.</p>
+                        <a href="blogs.html#guide2" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">🎯</div>
+                    <div class="blog-content">
+                        <h3>Long-Tail Keywords: Complete Guide to Finding & Ranking</h3>
+                        <p>Discover why long-tail keywords convert 2.5x better and how to find hundreds of opportunities. Perfect for voice search optimization.</p>
+                        <a href="blogs.html#guide3" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Dominate Search Results?</h2>
+            <p>Join 50,000+ marketers using KeywordPro to grow their organic traffic</p>
+            <button class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Start Finding Keywords Free</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Integrations</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">SEO Tools</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="https://sites.google.com/view/paraspak/home" target="_blank">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 KeywordPro. All rights reserved. | Built with ❤️ for SEO professionals</p>
+        </div>
+    </footer>
+
+    <script>
+        // Keyword search functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const keywordInput = document.getElementById('keywordInput');
+        const resultsSection = document.getElementById('resultsSection');
+        const resultsGrid = document.getElementById('resultsGrid');
+        const searchedKeyword = document.getElementById('searchedKeyword');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+
+        // Sample keyword data generator
+        function generateKeywordData(baseKeyword) {
+            const variations = [
+                baseKeyword,
+                `best ${baseKeyword}`,
+                `${baseKeyword} for beginners`,
+                `free ${baseKeyword}`,
+                `${baseKeyword} tutorial`,
+                `${baseKeyword} guide`,
+                `how to ${baseKeyword}`,
+                `${baseKeyword} tips`,
+                `${baseKeyword} tool`,
+                `${baseKeyword} software`,
+                `learn ${baseKeyword}`,
+                `${baseKeyword} strategy`
+            ];
+
+            return variations.map(keyword => ({
+                keyword: keyword,
+                volume: Math.floor(Math.random() * 50000) + 500,
+                difficulty: Math.floor(Math.random() * 100),
+                cpc: (Math.random() * 10 + 0.5).toFixed(2),
+                trend: Math.random() > 0.5 ? 'up' : 'down'
+            }));
+        }
+
+        function getDifficultyClass(difficulty) {
+            if (difficulty < 40) return 'low';
+            if (difficulty < 70) return 'medium';
+            return 'high';
+        }
+
+        function getDifficultyLabel(difficulty) {
+            if (difficulty < 40) return 'Easy';
+            if (difficulty < 70) return 'Medium';
+            return 'Hard';
+        }
+
+        function displayResults(keywords) {
+            resultsGrid.innerHTML = '';
+            
+            keywords.forEach(data => {
+                const diffClass = getDifficultyClass(data.difficulty);
+                const diffLabel = getDifficultyLabel(data.difficulty);
+                
+                const card = document.createElement('div');
+                card.className = 'result-card';
+                card.innerHTML = `
+                    <div class="result-header">
+                        <div class="keyword-text">${data.keyword}</div>
+                        <div class="difficulty-badge difficulty-${diffClass}">${diffLabel}</div>
+                    </div>
+                    <div class="result-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Search Volume</span>
+                            <span class="stat-value">${data.volume.toLocaleString()}/mo</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Keyword Difficulty</span>
+                            <span class="stat-value">${data.difficulty}/100</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">CPC</span>
+                            <span class="stat-value">$${data.cpc}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Trend</span>
+                            <span class="stat-value">${data.trend === 'up' ? '📈 Rising' : '📉 Stable'}</span>
+                        </div>
+                    </div>
+                `;
+                resultsGrid.appendChild(card);
+            });
+        }
+
+        function performSearch() {
+            const keyword = keywordInput.value.trim();
+            
+            if (!keyword) {
+                alert('Please enter a keyword to search');
+                return;
+            }
+
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-block';
+            searchBtn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                const keywordData = generateKeywordData(keyword);
+                searchedKeyword.textContent = keyword;
+                displayResults(keywordData);
+                
+                // Show results section
+                resultsSection.classList.add('active');
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                searchBtn.disabled = false;
+            }, 1500);
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        
+        keywordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards
+        document.querySelectorAll('.feature-card, .step, .testimonial, .blog-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Simulate real-time user count
+        const heroText = document.querySelector('.hero p');
+        let userCount = 50000;
+        setInterval(() => {
+            userCount += Math.floor(Math.random() * 5);
+            heroText.textContent = `The Free SEO Keywords Tool Trusted by ${userCount.toLocaleString()}+ Marketers`;
+        }, 5000);
+
+        // Add export functionality to results
+        function exportResults() {
+            const keyword = searchedKeyword.textContent;
+            const results = Array.from(document.querySelectorAll('.result-card')).map(card => {
+                const keywordText = card.querySelector('.keyword-text').textContent;
+                const stats = Array.from(card.querySelectorAll('.stat-value')).map(el => el.textContent);
+                return `${keywordText},${stats.join(',')}`;
+            });
+
+            const csvContent = "data:text/csv;charset=utf-8," 
+                + "Keyword,Search Volume,Difficulty,CPC,Trend\n"
+                + results.join('\n');
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `keywords_${keyword.replace(/\s+/g, '_')}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Add export button when results are shown
+        searchBtn.addEventListener('click', function() {
+            setTimeout(() => {
+                if (!document.getElementById('exportBtn')) {
+                    const exportBtn = document.createElement('button');
+                    exportBtn.id = 'exportBtn';
+                    exportBtn.className = 'btn btn-outline';
+                    exportBtn.textContent = '📥 Export CSV';
+                    exportBtn.style.marginTop = '1rem';
+                    exportBtn.onclick = exportResults;
+                    document.querySelector('.results .container').insertBefore(
+                        exportBtn,
+                        resultsGrid
+                    );
+                }
+            }, 1600);
+        });
+
+        // Mobile menu toggle
+        const navLinks = document.querySelector('.nav-links');
+        const navButtons = document.querySelector('.nav-buttons');
+        
+        // Create mobile menu button
+        if (window.innerWidth <= 768) {
+            const menuBtn = document.createElement('button');
+            menuBtn.className = 'mobile-menu-btn';
+            menuBtn.innerHTML = '☰';
+            menuBtn.style.cssText = 'font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--text-dark);';
+            
+            menuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+            
+            document.querySelector('nav').insertBefore(menuBtn, navButtons);
+        }
+
+        // Add live search suggestions
+        keywordInput.addEventListener('input', function(e) {
+            const value = e.target.value.toLowerCase();
+            if (value.length > 2) {
+                // Simulate suggestions (in real app, this would be an API call)
+                console.log('Searching for suggestions:', value);
+            }
+        });
+
+        // Track user interactions (analytics simulation)
+        function trackEvent(category, action, label) {
+            console.log(`Analytics Event: ${category} - ${action} - ${label}`);
+            // In production, this would send to Google Analytics or similar
+        }
+
+        // Track button clicks
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                trackEvent('Button', 'Click', btn.textContent);
+            });
+        });
+
+        // Track search queries
+        keywordInput.addEventListener('change', () => {
+            trackEvent('Search', 'Query', keywordInput.value);
+        });
+
+        // Add tooltip functionality
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Lazy load blog images (simulate)
+        const blogImages = document.querySelectorAll('.blog-image');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    imageObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        blogImages.forEach(img => {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.5s ease';
+            imageObserver.observe(img);
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                keywordInput.focus();
+            }
+            // Escape to clear search
+            if (e.key === 'Escape') {
+                keywordInput.value = '';
+                keywordInput.focus();
+            }
+        });
+
+        // Add scroll progress indicator
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-color);
+            z-index: 9999;
+            transition: width 0.2s ease;
+        `;
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // Add back to top button
+        const backToTop = document.createElement('button');
+        backToTop.innerHTML = '↑';
+        backToTop.className = 'back-to-top';
+        backToTop.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        `;
+
+        document.body.appendChild(backToTop);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+            } else {
+                backToTop.style.opacity = '0';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        backToTop.addEventListener('mouseenter', () => {
+            backToTop.style.transform = 'scale(1.1)';
+        });
+
+        backToTop.addEventListener('mouseleave', () => {
+            backToTop.style.transform = 'scale(1)';
+        });
+
+        // Simulate live notifications
+        let notificationCount = 0;
+        function showNotification(message) {
+            notificationCount++;
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: ${80 + (notificationCount - 1) * 70}px;
+                right: 20px;
+                background: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.innerHTML = `
+                <strong style="color: var(--primary-color);">✓ Success</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-dark);">${message}</p>
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                    notificationCount--;
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Show notification when search is complete
+        const originalPerformSearch = performSearch;
+        performSearch = function() {
+            originalPerformSearch();
+            setTimeout(() => {
+                showNotification('Keywords found successfully!');
+            }, 1600);
+        };
+
+        // Add form validation
+        keywordInput.addEventListener('blur', function() {
+            if (this.value.trim().length > 0 && this.value.trim().length < 2) {
+                this.style.borderColor = 'red';
+                showNotification('Please enter at least 2 characters');
+            } else {
+                this.style.borderColor = '';
+            }
+        });
+
+        // Simulate real-time competitors tracking
+        console.log('%c🔍 KeywordPro SEO Tool Initialized', 'color: #6366f1; font-size: 16px; font-weight: bold;');
+        console.log('%cVersion: 1.0.0', 'color: #10b981;');
+        console.log('%cBuilt for SEO professionals', 'color: #6b7280;');
+        
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`⚡ Page loaded in ${(loadTime / 1000).toFixed(2)}s`);
+        });
+    </script>
+</body>
+</html>
